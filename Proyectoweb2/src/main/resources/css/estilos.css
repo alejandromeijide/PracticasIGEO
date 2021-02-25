@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#tablaClientes{margin:30px}
+
+.feo {
+	background-color:#81d8d0;
+
+}
+
+
+h1 {
+	background-color:#fc3264;
+	text-align: left;
+	font-family:'Arial';
+
+}
+
+#titulo{
+	background-color:#51d1f6;
+	right: 150px;
+	
+	
+}
+.caja { 
+font-family: sans-serif; 
+font-size: 18px; 
+font-weight: 400; 
+color:#ff8080; 
+background: #fceeba ;
+}
+
+.guapo{
+	background-color:#ff8080 ;
+
+}
+#titulo1{
+	background-color:#fceeba ;
+	
+}
+
+.formu span{
+	background-color:#ff8081 ;
+	
+	
+}
+
+#fondo{
+	background-color:#61CACF ;
+	
+}
+
+#div1{
+	background-color:#ee0467;
+	
+}
+
+#div2{
+	background-color:#ff8080 ;
+	
+}
+
+#boton1{
+	background-color:#00ffff ;
+	
+}
+
+

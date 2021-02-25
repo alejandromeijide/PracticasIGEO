@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Listado de clientes</title>
+<link rel="stylesheet" href="css/estilos.css"/> 
+<script type="text/javascript" src="js/proyectobasic.js"></script>
+
+
+</head>
+<body onload="init()">
+
+<h1 class="feo" id="titulo">Listado Clientes</h1>
+
+<table id="tablaClientes">
+  <tr id="Cabecera">
+    <th  class="feo">Código</th>
+    <th  class="feo">Nombre</th>
+    <th  class="feo">Delegación</th>
+    <th  class="feo">Provincia</th>
+    <th  class="feo">Localidad</th>
+    <th  class="feo">Acciones</th>
+    
+  </tr>
+  <tr id="fila1">
+   	<td>001</td>
+    <td>Alfredo de Lucas</td>
+    <td>ASDFG</td>
+    <td>Madrid</td>
+    <td>ADH</td>
+    <td>
+    
+  
+    <button onclick="anadeRegistro()">Añadir Registro</button>
+    
+    <button onclick="eliminaRegistro('fila1')">Eliminar
+    </button>
+    
+    
+    </td>
+    
+  </tr>
+  <tr id="fila2">
+    <td>002</td>
+    <td>Alfredo de Lucas</td>
+    <td>ASDFG</td>
+    <td>Madrid</td>
+    <td>ADH</td>
+    <td>
+    <button onclick="anadeRegistro()">Añadir Registro</button>
+    <button onclick="eliminaRegistro('fila2')">Eliminar</button>
+    <button onclick="actualizaRegistro()">Actualizar</button>
+     
+     </td>
+  </tr>
+  <tr id="fila3">
+    <td>003</td>
+    <td>Alfredo de Lucas</td>
+    <td>ASDFG</td>
+    <td>Madrid</td>
+    <td>ADH</td>
+    <td>
+    <button onclick="anadeRegistro()">Añadir Registro</button>
+    <button onclick="eliminaRegistro('fila3')">Eliminar</button>
+    <button onclick="actualizaRegistro()">Actualizar</button>
+     
+     </td>
+    
+  </tr>
+  <tr id="fila4">
+    <td>004</td>
+    <td>Alfredo de Lucas</td>
+    <td>ASDFG</td>
+    <td>Madrid</td>
+    <td>ADH</td>
+     <td>
+    <button onclick="anadeRegistro()">Añadir Registro</button>
+    <button onclick="anadeRegistro('fila4')">Eliminar</button>
+    <button onclick="anadeRegistro()">Actualizar</button>
+     
+     </td>
+    
+  </tr>
+  <tr id="fila5">
+    <td>005</td>
+    <td>Alfredo de Lucas</td>
+    <td>ASDFG</td>
+    <td>Madrid</td>
+    <td>ADH</td>
+     <td>
+    <button onclick="anadeRegistro()">Añadir Registro</button>
+    <button onclick="eliminaRegistro('fila5')">Eliminar</button>
+    <button onclick="actualizaRegistro()">Actualizar</button>
+    
+    
+    <script type="text/javascript">
+$(document).ready(function() {
+    $('.delete').on('click', function(e) {
+        e.preventDefault();
+        var parent = $(this).parent().parent().attr('codigo');
+        var item = $(this).attr('id');
+ 
+        var dataString = 'item='+item;
+ 
+        $.ajax({
+            type: "POST",
+            url: "/eliminar-cliente/{codigo}",
+          //  data: dataString,
+            success: function(response) {			
+               // $('.alert-success').empty();
+                //$('.alert-success').append(response).fadeIn("slow");
+                $('#'+parent).fadeOut("slow");
+            }
+        });
+    });                 
+});    
+</script>
+    
+    
+     
+     </td>
+  </tr>
+  
+</table>
+
+</body>
+</html>

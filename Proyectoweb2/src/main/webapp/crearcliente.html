@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Añadir Cliente</title>
+<link rel="stylesheet" href="resources/css/estilos.css"/> 
+<script type="text/javascript" src="resources/js/proyectobasic.js"></script>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+</head>
+<body>
+
+     <form:form method="POST" 
+          action="/crear-cliente" modelAttribute= cliente >
+             <table>
+                <tr>
+                    <td><input type="text"  form:label path="codigo" >Código </form:label> </td>
+                    <td><form:input path="codigo"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" form:label path="Nombre">Nombre</form:label></td>
+                    <td><form:input path="Nombre"/></td>
+                </tr>
+                <tr>
+                    <td><input type="text" form:label path="delegacion">
+                      Delegación</form:label></td>
+                    <td><form:input path="delegacion"/></td>
+                </tr>
+                 <tr>
+                    <td><input type="text" form:label path="provincia">
+                      Provincia</form:label></td>
+                    <td><form:input path="provincia"/></td>
+                </tr>
+                
+                 <tr>
+                    <td><input type="text" form:label path="localidad">
+                      Localidad</form:label></td>
+                    <td><form:input path="localidad"/></td>
+                </tr>
+                
+                <tr>
+                    <td><input type="submit" value="Submit"/></td>
+                </tr>
+            </table>
+        </form:form>
+    </body>
+</html>
+    
+ 
