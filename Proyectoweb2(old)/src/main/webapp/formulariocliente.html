@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Añadir Cliente Formu</title>
+<link rel="stylesheet" href="css/estilos.css"/> 
+<script type="text/javascript" src="js/proyectobasic.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+</head>
+
+<body id="fondo"> 
+
+<p> 
+
+
+<h2 class="formu" ><span> Añadir registro</span></h2>
+
+
+
+     
+<form action="signup.php" id="coco" method="post" name="fcontacto">
+
+
+ <script type="text/javascript">
+    
+    $(document).ready(function(){ 
+	$("#boton01").click(function () {
+		//saco el valor accediendo a un input de tipo text y name = nombre
+		var valorname=$('input:text[name=nombre]').prop("name");
+		console.log(valorname);
+		$('input:text[name=nombre]').val(valorname);
+	
+		});
+	});
+   
+    </script>	
+
+
+ 
+  <label for="codigo">Código:</label> <input id="codigo" type="number" name="codigo1"   required>
+  <br>
+  <br>
+  <label for="nombre">Nombre:</label> <input  id="nombre" type="text" name="nombre" size="30"  required>
+  <br>
+  <br>
+  <label for="delegación">Delegación</label> <input id="delegación" type="text" name="delegacion" required>
+  <br>
+  <br>
+  <label for="provincia">Provincia</label> <input id="provincia" type="text" name="provincia" required>
+  <br>
+  <br>
+  <label for="localidad">Localidad</label> <input id="localidad" type="text" name="localidad" required>
+  <br>
+  
+  <p>Información extra:</p>
+  <label for="email">Email</label> <input id="email" type="email" name="email" required>
+  
+    <br>
+    <br>
+    <label for="fecha">Fecha en la que está añadiendo el registro</label> <input id="fecha" type="date" name="date" required>
+     
+    <br>
+    <br>
+    
+
+    <br>
+    
+    <input type="button" name="boton01" id="boton01" value="valor">
+    
+    <br>
+    
+    
+    <h2>Prueba con Javascript</h2>
+     
+	<p> Marcar la opción mosrtrar para incluir datos extras en un cuadro de texto</p>
+    
+    <input type="radio" id="ocultar" name="Conocido" value="ocultar" onchange=" " onclick=ocultarMostrar() >
+    <label for="mostrar">ocultar</label>
+    <br>
+    <input type="radio" id="mostrar" name="Conocido" value="mostrar" onclick=ocultarMostrar()>
+    <label for="ocultar">mostrar</label><br>
+    
+    
+    <br>
+   
+
+	<div id="desdeotro" style="display:none;">
+	<p>Incluir otros datos extras o especificaciones:</p>
+	<p><input type="text" name="otro" class="input" /></p>
+	</div>
+    
+    
+	  <p>Seleccione su país de residencia: </p>
+	  
+	  <select name="Países disponibles">
+     <option value="España">España</option> 
+     <option value="Portugal">Portugal</option> 
+     <option value="Argtentina">Argentina</option>
+     <option value="Italia">Italia</option> 
+     <option value="Uruguay">Uruguay</option> 
+     <option value="Colombia">Colombia</option> 
+     </select>
+	  
+	  <br>
+	  <br>
+	  
+	  
+      <input type="submit" value="Enviar">
+      <input type="reset" value="Borrar">
+	  <input type="submit"  onclick="alert('Formulario enviado')" value="Enviar1">
+	  
+	  <br>
+	  <br>
+	  
+	<a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="¡CSS Válido!" />
+    </a>
+
+  
+  </form>
+  
+  <script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#p1").hide();
+  });
+  $("#show").click(function(){
+    $("#p1").show();
+  });
+  $("#habi").click(function(){
+    $("form input, form select  ").prop('disabled',false);
+  });
+   
+  $("#deshabi").click(function(){
+    $("form input, form select ").prop('disabled',true);
+  });
+  
+  
+   $("#mostrardivid").click(function(){
+    $("#div1").show();
+  });
+  
+   
+   $("#esconderdivid").click(function(){
+    $("#div1").hide();
+  });
+  
+  $("#mostrardivclase").click(function(){
+    $(".clase").show();
+  });
+  
+   
+   $("#esconderdivclase").click(function(){
+    $(".clase").hide();
+  });
+  
+  
+   $("#añadirclase").click(function(){
+    $("div[class!='clase']").addClass("clase").css("background-color", "yellow");
+    
+    
+  });
+  
+  $("#quitarclase").click(function(){
+    $("div[class='clase']").removeClass("clase");
+    
+    
+  });
+  
+  
+ 
+});
+</script>
+
+
+<h3>Prueba con JQuery</h3>
+
+<p>Incluir otros datos extras o especificaciones: </p><br>
+
+<div id="div1" >Este tiene solo id</div>
+<div id="div2" class="clase" >Este tiene id y tiene clase </div>
+<div  class="clase" >Este tiene clase </div>
+<div  >Este no tiene nada</div>
+
+<p id="p1" style="display: none;"><input type="text"  name="otro" class="input" /> </p>
+
+
+
+ <br>
+ <br>
+
+<button id="hide">Pulsa para esconder el cuadro de  texto </button>
+<button id="show">Pulsa para mostrar el cuadro  texto</button>
+<button id="habi">Habilitar</button>
+<button id="deshabi">Deshabilitar</button>
+
+<br>
+<br>
+
+
+
+
+<button id="mostrardivid">Mostrar div con id</button>
+<button id="esconderdivid">Esconder div con id</button>
+<button id="mostrardivclase">Mostrar div con clase</button>
+<button id="esconderdivclase">Esconder div con clase</button>
+<button id="añadirclase">Añadir clase</button>
+<button id="quitarclase">Quitar clase</button>
+
+<br>
+<p>La función de este botón está realizada con javascipt y hace que se escondan los div con id=div1 </p>
+
+<button onclick="myFunction()">Clickeame</button>
+
+
+
+
+</body>
+</html>
