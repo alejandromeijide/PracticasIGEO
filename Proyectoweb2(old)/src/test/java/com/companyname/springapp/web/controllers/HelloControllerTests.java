@@ -1,6 +1,6 @@
 package com.companyname.springapp.web.controllers;
 
-import static org.junit.Assert.*;
+import java.lang.ModuleLayer.Controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.companyname.springapp.business.SpringappBusinessConfig;
 import com.companyname.springapp.web.SpringappWebConfig;
@@ -19,7 +18,7 @@ import com.companyname.springapp.web.SpringappWebConfig;
 public class HelloControllerTests {
 
     @Autowired
-    private HelloController controller;
+    private Controller controller;
 
     @Test
     public void testHandleRequestView() {	

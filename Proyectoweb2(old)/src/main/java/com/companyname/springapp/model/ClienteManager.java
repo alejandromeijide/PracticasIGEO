@@ -2,8 +2,10 @@ package com.companyname.springapp.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ClienteManager {
 	private static List<Cliente> listaclientes = new ArrayList<>();
 
@@ -23,7 +25,7 @@ public class ClienteManager {
 	//return registrar;
 //}
 
-	public static Cliente buscarClienteById(Integer id) {
+	public  Cliente buscarClienteById(Integer id) {
 
 		Cliente clienteDev = null;
 
@@ -37,7 +39,7 @@ public class ClienteManager {
 
 	}
 	
-	public static Cliente buscarClienteByCodigo(Integer codigo) {
+	public  Cliente buscarClienteByCodigo(Integer codigo) {
 
 		Cliente clienteDev = null;
 
@@ -51,15 +53,15 @@ public class ClienteManager {
 
 	}
 
-public static Cliente guardarCliente(Cliente cliente){
+public Cliente guardarCliente(Cliente cliente){
 	
 	if(cliente.getId() == null)
 	{// Es una creación
-		cliente.setId(ClienteManager.obtenerId());
+		cliente.setId(obtenerId());
 	}
 	else
 	{// Es una edición
-		ClienteManager.eliminarClienteById(cliente.getId());
+		eliminarClienteById(cliente.getId());
 	}
 	
 	listaclientes.add(cliente);
@@ -68,19 +70,19 @@ public static Cliente guardarCliente(Cliente cliente){
 	
 } 
 
-public static boolean eliminarClienteById(int id) {
+public boolean eliminarClienteById(int id) {
 	
 	Cliente clienteOri = buscarClienteById(id);
 	return listaclientes.remove(clienteOri); 
 	} 
 
 
-public static List<Cliente> obtenerClientes() {
+public List<Cliente> obtenerClientes() {
 	
 	 return listaclientes;
 }
 
-private static int obtenerId() {
+private int obtenerId() {
 	
 	Integer max = listaclientes.stream().map(Cliente::getId).max(Integer::compare).get() + 1;
 	return max;

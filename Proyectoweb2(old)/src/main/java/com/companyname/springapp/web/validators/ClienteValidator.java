@@ -9,7 +9,14 @@ import org.springframework.validation.Validator;
 import com.companyname.springapp.model.Cliente;
 import com.companyname.springapp.model.ClienteManager;
 
-
+/**
+ * Validador para cliente.
+ * Controla que no tengamos codigos repetidos
+ * 
+ * @author Alejandro
+ *
+ */
+@Component
 public class ClienteValidator implements Validator {
 
 	@Autowired private ClienteManager clienteManager;
@@ -19,19 +26,30 @@ public class ClienteValidator implements Validator {
 		return Cliente.class.isAssignableFrom(clazz);
 	}
 
+	/**
+	 * Validador
+	 */
 	@Override
-	public void validate(Object target, Errors errors) {
-/*		Cliente command = (Cliente) target;
+	public void validate(Object objAValidar, Errors errors) {
+		Cliente clienteAValidar = (Cliente) objAValidar;
 
-		Integer codigo = command.getCodigo();
-
-		if (StringUtils.isEmpty(codigo) == false) {
-			Cliente clienteBusqueda = ClienteManager.buscarClienteByCodigo(codigo);
+		// Buscamos cliene por codigo
+		Integer codigo = clienteAValidar.getCodigo();
+		Cliente clienteBusqueda = clienteManager.buscarClienteByCodigo(codigo);
+		
+		if (clienteAValidar.getId() == null) {
+			// Si es creación no dejamos crear si existe cliente con código
 			if (clienteBusqueda != null) {
-				errors.rejectValue("codigo", "codigo", "El codigo ya existe");
+				errors.rejectValue("codigo", "codigo", "Error en la creación. El codigo ya existe");
 			}
 		}
-*/
+		else{
+			// Si es Edición comprobamos que el cliente encontrado es el que estamso editando
+			if(clienteBusqueda != null && clienteBusqueda.getId() != clienteAValidar.getId()){
+				errors.rejectValue("codigo", "codigo", "Error en la edición. El codigo ya existe.");
+			}
+		}
+
 	}
 
 }

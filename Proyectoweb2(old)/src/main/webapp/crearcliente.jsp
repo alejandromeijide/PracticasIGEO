@@ -51,16 +51,27 @@
                     <td><form:input path="nombre"/></td>
                     <td><form:errors path="nombre" cssClass="msgErrorForm" element="span" /><td>
                 </tr>
+                
+                
                 <tr>
-                    <td><form:label path="delegacion">Delegación</form:label></td>
-                    <td><form:input path="delegacion"/></td>
-                    <td><form:errors path="delegacion" cssClass="msgErrorForm" element="span" /><td>
-                </tr>
-                 <tr>
-                    <td><form:label path="provincia">Provincia</form:label></td>
-                    <td><form:input path="provincia"/></td>
-                    <td><form:errors path="provincia" cssClass="msgErrorForm" element="span" /><td>
-                </tr>
+                	<td>Delegacion</td>
+                	<td>
+                		<form:select path="delegacion">
+    						<form:options items="${delegaciones}" />
+						</form:select> 
+						<%--<form:select path="delegacion" items="${delegaciones }" /> --%>
+					</td>
+					<td><form:errors path="delegacion" cssClass="msgErrorForm" element="span" /><td>
+				</tr>
+				
+				  
+				<tr>
+					<td>Provincia</td> 
+					<td>
+						<form:radiobuttons path="provincia" items="${provincias}"  /> 
+					</td>
+					<td><form:errors path="provincia" cssClass="msgErrorForm" element="span" /><td>
+				</tr>
                 
                  <tr>
                     <td><form:label path="localidad">Localidad</form:label></td>
