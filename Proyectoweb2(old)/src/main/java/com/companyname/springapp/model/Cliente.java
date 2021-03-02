@@ -1,11 +1,11 @@
 package com.companyname.springapp.model;
 
-import javax.validation.constraints.NotNull;
+//import javax.persistence.Entity;
 
+//@Entity
 public class Cliente {
 	
 	private Integer id;
-	@NotNull
 	private Integer codigo;
 	private String provincia;
 	private String nombre;

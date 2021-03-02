@@ -60,7 +60,7 @@ public class Controlador {
 	 * @return
 	 */
 	@RequestMapping(value = "/eliminar-cliente/{id}", method = RequestMethod.POST)
-	public @ResponseBody boolean postEliminarCliente(Model model, @PathVariable Integer id) {
+	public @ResponseBody Boolean postEliminarCliente(Model model, @PathVariable Integer id) {
 		logger.info("postEliminarCliente" + id);
 		// Eliminamos cliente
 		boolean borrado = clienteManager.eliminarClienteById(id);
@@ -107,6 +107,8 @@ public class Controlador {
 		// Redireción si hay errores
 		if (result.hasErrors()) {
 			model.addAttribute("cliente", cliente);
+			model.addAttribute("delegaciones", Delegaciones.values());
+			model.addAttribute("provincias", Provincias.values());
 			return new ModelAndView("crearcliente.jsp");
 		}
 
